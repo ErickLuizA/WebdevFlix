@@ -1,11 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { VideoCardGroupContainer, Title, SliderContainer } from './styles'
 import Slider from 'react-slick'
 import VideoCard from './components/VideoCard'
+import { useState } from 'react'
+import api from '../../services/api'
 
-function Carousel({ ignoreFirstVideo, category }) {
-  const categoryTitle = category.titulo;
-  const videos = category.videos;
+function Carousel({ category }) {
+
+  const [videos, setVideos] = useState([])
+
+  useEffect(() => {
+    (async () => {
+      const response = await api.get(`/category?category=${category}`)
+      setVideos(response.data)
+    })()
+  }, [])
 
   const settings = {
       dots: false,
@@ -16,25 +25,22 @@ function Carousel({ ignoreFirstVideo, category }) {
       adaptiveHeight: true,
   }
 
+  const categoryTitle = category.replace(/(^\w|\s\w)(\S*)/g, (_,m1,m2) => m1.toUpperCase()+m2.toLowerCase())
+
+
   return (
     <VideoCardGroupContainer>
-      {categoryTitle && (
-          <Title>
-            {categoryTitle}
-          </Title>
-      )}
+      <Title>
+        {categoryTitle}
+      </Title>
       <SliderContainer>
         <Slider {...settings} >
-          {videos.map((video, index) => {
-            if (ignoreFirstVideo && index === 0) {
-              return null;
-            }
-
+          {videos.map((video) => {
             return (
               <VideoCard 
-              key={index}
-              videoTitle = {video.titulo}
-              videoURL = {video.url}
+              key={video.id}
+              videoTitle={video.title}
+              videoURL={video.link}
               />
               )
           })}

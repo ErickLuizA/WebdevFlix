@@ -1,44 +1,52 @@
-import React, { useState } from "react";
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
-import Button from "../../components/Button";
-import Bottombar from "../../components/Bottombar";
-import { Form, InputGroup } from "./styles";
-import { useHistory } from "react-router-dom";
-import api from "../../services/api";
+import React, { useState } from "react"
+import Navbar from "../../components/Navbar"
+import Footer from "../../components/Footer"
+import Button from "../../components/Button"
+import Bottombar from "../../components/Bottombar"
+import { Form, InputGroup } from "./styles"
+import { useHistory } from "react-router-dom"
+import api from "../../services/api"
 
 function NewEpisode() {
-  const [title, setTitle] = useState("");
-  const [link, setLink] = useState("");
-  const [category, setCategory] = useState("");
+  const [title, setTitle] = useState("")
+  const [link, setLink] = useState("")
+  const [category, setCategory] = useState("")
+  const [description, setDescription] = useState("")
 
-  const history = useHistory();
+  const history = useHistory()
 
   const handleTitleChange = (e) => {
-    setTitle(e.target.value);
-  };
+    setTitle(e.target.value)
+  }
 
   const handleLinkChange = (e) => {
-    setLink(e.target.value);
-  };
+    setLink(e.target.value)
+  }
 
   const handleCategoryChange = (e) => {
-    setCategory(e.target.value);
-  };
+    setCategory(e.target.value)
+  }
+
+  const handleDescriptionChange = (e) => {
+    setDescription(e.target.value)
+  }
 
   const handleFormSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
+
+    const correctDescription = description.toLowerCase()
 
     const data = {
       title,
       link,
       category,
-    };
+      description: correctDescription
+    }
 
-    await api.post("/newepisode", data);
+    await api.post("/newepisode", data)
 
-    history.push("/");
-  };
+    history.push("/")
+  }
 
   return (
     <>
@@ -79,13 +87,24 @@ function NewEpisode() {
             />
             <label htmlFor="category"> Category </label>
           </InputGroup>
+          <InputGroup>
+            <input
+              type="text"
+              name="description"
+              id="description"
+              value={description}
+              onChange={handleDescriptionChange}
+              required
+            />
+            <label htmlFor="description"> Description </label>
+          </InputGroup>
           <Button type="submit"> Add episode </Button>
         </fieldset>
       </Form>
       <Footer />
       <Bottombar />
     </>
-  );
+  )
 }
 
-export default NewEpisode;
+export default NewEpisode
