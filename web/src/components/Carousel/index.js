@@ -14,7 +14,7 @@ function Carousel({ category }) {
       const response = await api.get(`/category?category=${category}`)
       setVideos(response.data)
     })()
-  }, [])
+  }, [category])
 
   const settings = {
       dots: false,
@@ -50,4 +50,4 @@ function Carousel({ category }) {
   );
 }
 
-export default Carousel;
+export default Carousel
