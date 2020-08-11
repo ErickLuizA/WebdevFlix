@@ -34,13 +34,13 @@ function NewEpisode() {
   const handleFormSubmit = async (e) => {
     e.preventDefault()
 
-    const correctDescription = description.toLowerCase()
+    const correctCategory = category.toLowerCase()
 
     const data = {
       title,
       link,
-      category,
-      description: correctDescription
+      category: correctCategory,
+      description
     }
 
     await api.post("/newepisode", data)
