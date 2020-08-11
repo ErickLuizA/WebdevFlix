@@ -15,6 +15,6 @@ body {
   margin: 0;
   padding: 0;
   background-color: ${({ theme }) => theme.background };
-  overflow: hidden;
+  overflow-y: hidden;
 }
 `
