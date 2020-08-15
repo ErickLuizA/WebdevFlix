@@ -15,10 +15,7 @@ function Home() {
 
   useEffect(() => {
     (async () => {
-      const random = Math.random()
-      const randomEpisode = Math.round(random * 10)
-
-      const response = await api.get(`/episodes/${randomEpisode}`)
+      const response = await api.get('/episodes/14')
       setEpisode(response.data)
     })()
   }, [])
