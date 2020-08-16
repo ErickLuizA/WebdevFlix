@@ -15,7 +15,7 @@ function Home() {
 
   useEffect(() => {
     (async () => {
-      const response = await api.get('/episodes/14')
+      const response = await api.get('/episodes/22')
       setEpisode(response.data)
     })()
   }, [])
