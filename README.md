@@ -1,5 +1,5 @@
 <p align="center"> 
-  <img alt="WebdevFlix icon" src="./web/src/assets/darklogo.png"  width="280"/>
+  <img alt="WebdevFlix icon" src="./src/assets/darklogo.png"  width="280"/>
 </p> 
 
 <h1 align="center"> WebdevFlix </h1>
@@ -35,24 +35,14 @@
   <a href="#memo-license">License</a>
 </p>
 
-> Under construction
 
 ## :clipboard: Description
 WebdevFlix is a netflix based app for web dev related videos
 
 
-
 ## :building_construction: Technologies
 - [ReactJS](https://www.reactjs.org)
   - [React-router-dom](https://reactrouter.com/web/guides/quick-start)
-
-- [Node.js](https://nodejs.org/en/)
-  - [Express](https://expressjs.com)
-  - [Knex](http://knexjs.org)
-  - [Pg](https://node-postgres.com)
-  - [Cors](https://www.npmjs.com/package/cors)
-  - [Dotenv](https://www.npmjs.com/package/dotenv)
-  
 
 ## :rocket: Getting Started
 
@@ -66,42 +56,23 @@ WebdevFlix is a netflix based app for web dev related videos
 
 ``` shell
 # Go into the repository
+
 $ cd WebdevFlix
 ```
 
-### Web
-
 ``` shell
-# Go to the web folder
-$ cd web
-
 # Install dependencies
-$ yarn install
-```
-### Server
 
-``` shell
-# Go to the server folder
-$ cd server 
-
-# Install dependencies
 $ yarn install
 ```
 
 ## 3. Execution
 
-### Web
-
 ```shell
-# On the web folder
 $ yarn start
 ```
 
-### Server
-```shell
-# On the server folder
-$ yarn dev
-```
+> [Live Demo](https://webdevflix.netlify.app/)
 
 
 ## :memo: License
@@ -110,4 +81,4 @@ This project is under the MIT license. See the file [LICENSE](LICENSE) for more 
 
 ---
 
-Build with 💙 By [Erick](https://erickluiz.netlify.app/)
+Build with 💙 By [Erick](https://www.linkedin.com/in/erick-luiz-47151a1a4/)
