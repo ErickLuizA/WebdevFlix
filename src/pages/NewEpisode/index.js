@@ -46,9 +46,13 @@ function NewEpisode () {
       description
     }
 
-    await api.post('/newepisode', data)
+    try {
+      await api.post('/newepisode', data)
 
-    history.push('/')
+      history.push('/')
+    } catch (error) {
+      alert('A error ocurred while trying to add episode, please try again.')
+    }
   }
 
   return (

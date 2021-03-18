@@ -9,21 +9,29 @@ import Carousel from '../../components/Carousel'
 import Bottombar from '../../components/Bottombar'
 import Spinner from '../../components/Spinner'
 
-function Home() {
+function Home () {
   const [categories, setCategories] = useState([])
   const [episodes, setEpisodes] = useState([])
 
   useEffect(() => {
-    ;(async () => {
-      const response = await api.get('/episodes')
-      setEpisodes(response.data)
+    (async () => {
+      try {
+        const response = await api.get('/episodes')
+        setEpisodes(response.data)
+      } catch (error) {
+        alert('A error ocurred while trying to load the data, please refresh the page.')
+      }
     })()
   }, [])
 
   useEffect(() => {
-    ;(async () => {
-      const response = await api.get('/categories')
-      setCategories(response.data)
+    (async () => {
+      try {
+        const response = await api.get('/categories')
+        setCategories(response.data)
+      } catch (error) {
+        alert('A error ocurred while trying to load the data, please refresh the page.')
+      }
     })()
   }, [])
 
