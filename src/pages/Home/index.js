@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
+
 import api from '../../services/api'
 
 import Navbar from '../../components/Navbar'
@@ -9,49 +10,53 @@ import Bottombar from '../../components/Bottombar'
 import Spinner from '../../components/Spinner'
 
 function Home() {
-
-  const [episode, setEpisode] = useState([])
   const [categories, setCategories] = useState([])
+  const [episodes, setEpisodes] = useState([])
 
   useEffect(() => {
-    (async () => {
-      const response = await api.get('/episodes/29')
-      setEpisode(response.data)
+    ;(async () => {
+      const response = await api.get('/episodes')
+      setEpisodes(response.data)
     })()
   }, [])
 
   useEffect(() => {
-    (async () => {
+    ;(async () => {
       const response = await api.get('/categories')
       setCategories(response.data)
     })()
   }, [])
 
-  if(episode.length === 0) {
+  if (episodes.length === 0 || categories.length === 0) {
     return <Spinner />
   }
 
   return (
-  	<>
-	  	<Navbar />
-	  	<Banner
-        videoTitle={episode[0].title}
-        url={episode[0].link}
-        videoDescription={episode[0].description}
+    <>
+      <Navbar />
+      <Banner
+        videoTitle={episodes[0].title}
+        url={episodes[0].link}
+        videoDescription={episodes[0].description}
       />
 
       {categories.map(category => {
+        const categoryEpisodes = episodes.filter(
+          ep => ep.category === category.title
+        )
+
         return (
           <Carousel
             key={category.id}
-            category={category.title}
-        />
+            category={category}
+            episodes={categoryEpisodes}
+          />
         )
       })}
 
       <Footer />
       <Bottombar />
-  	</>
+    </>
   )
 }
 

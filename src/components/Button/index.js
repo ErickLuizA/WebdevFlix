@@ -1,10 +1,8 @@
-import React from 'react'
-
 import { OriginalButton } from './styles'
 
-function Button({ className, children }) {
+function Button ({ className, children }) {
   return (
-    <OriginalButton className={className} >
+    <OriginalButton className={className}>
       {children}
     </OriginalButton>
   )

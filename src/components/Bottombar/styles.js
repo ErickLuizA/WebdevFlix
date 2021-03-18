@@ -5,7 +5,7 @@ export const Container = styled.div`
     display: none;
   }
 
-  background-color: ${({theme}) => theme.background};
+  background-color: ${({ theme }) => theme.background};
   position: fixed;
   bottom: 0;
   left: 0;

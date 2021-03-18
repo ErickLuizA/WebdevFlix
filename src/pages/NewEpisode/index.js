@@ -1,17 +1,20 @@
-import React, { useState } from "react"
-import Navbar from "../../components/Navbar"
-import Footer from "../../components/Footer"
-import Button from "../../components/Button"
-import Bottombar from "../../components/Bottombar"
-import { Form, InputGroup } from "./styles"
-import { useHistory } from "react-router-dom"
-import api from "../../services/api"
+import { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 
-function NewEpisode() {
-  const [title, setTitle] = useState("")
-  const [link, setLink] = useState("")
-  const [category, setCategory] = useState("")
-  const [description, setDescription] = useState("")
+import { Form, InputGroup } from './styles'
+
+import api from '../../services/api'
+
+import Navbar from '../../components/Navbar'
+import Footer from '../../components/Footer'
+import Button from '../../components/Button'
+import Bottombar from '../../components/Bottombar'
+
+function NewEpisode () {
+  const [title, setTitle] = useState('')
+  const [link, setLink] = useState('')
+  const [category, setCategory] = useState('')
+  const [description, setDescription] = useState('')
 
   const history = useHistory()
 
@@ -34,18 +37,18 @@ function NewEpisode() {
   const handleFormSubmit = async (e) => {
     e.preventDefault()
 
-    const correctCategory = category.toLowerCase()
+    const lowerCaseCategory = category.toLowerCase()
 
     const data = {
       title,
       link,
-      category: correctCategory,
+      category: lowerCaseCategory,
       description
     }
 
-    await api.post("/newepisode", data)
+    await api.post('/newepisode', data)
 
-    history.push("/")
+    history.push('/')
   }
 
   return (
@@ -56,49 +59,49 @@ function NewEpisode() {
           <legend>New Episode</legend>
           <InputGroup>
             <input
-              type="text"
-              name="title"
-              id="title"
+              type='text'
+              name='title'
+              id='title'
               value={title}
               onChange={handleTitleChange}
               required
             />
-            <label htmlFor="title"> Title </label>
+            <label htmlFor='title'> Title </label>
           </InputGroup>
           <InputGroup>
             <input
-              type="text"
-              name="link"
-              id="link"
+              type='text'
+              name='link'
+              id='link'
               value={link}
               onChange={handleLinkChange}
               required
             />
-            <label htmlFor="link"> Link </label>
+            <label htmlFor='link'> Link </label>
           </InputGroup>
           <InputGroup>
             <input
-              type="text"
-              name="category"
-              id="category"
+              type='text'
+              name='category'
+              id='category'
               value={category}
               onChange={handleCategoryChange}
               required
             />
-            <label htmlFor="category"> Category </label>
+            <label htmlFor='category'> Category </label>
           </InputGroup>
           <InputGroup>
             <input
-              type="text"
-              name="description"
-              id="description"
+              type='text'
+              name='description'
+              id='description'
               value={description}
               onChange={handleDescriptionChange}
               required
             />
-            <label htmlFor="description"> Description </label>
+            <label htmlFor='description'> Description </label>
           </InputGroup>
-          <Button type="submit"> Add episode </Button>
+          <Button type='submit'> Add episode </Button>
         </fieldset>
       </Form>
       <Footer />

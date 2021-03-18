@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Form = styled.form`
   width: 90%;
@@ -29,7 +29,7 @@ export const Form = styled.form`
       position: absolute;
       left: 10px;
       top: 10px;
-      color: ${({ theme  }) => theme.background}
+      color: ${({ theme }) => theme.background}
     }
 
     input:focus + label,
@@ -45,9 +45,8 @@ export const Form = styled.form`
       outline: none;
     }
   }
-`;
+`
 
 export const InputGroup = styled.div`
   position: relative;
-`;
-
+`

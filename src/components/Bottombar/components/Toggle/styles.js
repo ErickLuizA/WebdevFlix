@@ -19,4 +19,4 @@ export const ToggleContainer = styled.button`
   @media(min-width: 768px) {
     display: none;
   }
-`;
+`

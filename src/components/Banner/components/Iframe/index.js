@@ -1,13 +1,11 @@
-import React from 'react'
-
 import { Video } from './styles'
 
-const Iframe = ({ youtubeId  }) => {
+const Iframe = ({ youtubeId }) => {
   return (
-    <Video 
+    <Video
       src={`https://www.youtube.com/embed/${youtubeId}?autoplay=0&mute=1`}
-      frameBorder="0"
-      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+      frameBorder='0'
+      allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'
       allowFullScreen
     />
   )

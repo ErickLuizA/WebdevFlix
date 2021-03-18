@@ -1,32 +1,20 @@
-import React, { useEffect } from 'react'
-import { VideoCardGroupContainer, Title, SliderContainer } from './styles'
 import Slider from 'react-slick'
+
+import { VideoCardGroupContainer, Title, SliderContainer } from './styles'
+
 import VideoCard from './components/VideoCard'
-import { useState } from 'react'
-import api from '../../services/api'
 
-function Carousel({ category }) {
+const settings = {
+  dots: false,
+  infinite: true,
+  speed: 300,
+  centerMode: false,
+  variableWidth: true,
+  adaptiveHeight: true
+}
 
-  const [videos, setVideos] = useState([])
-
-  useEffect(() => {
-    (async () => {
-      const response = await api.get(`/category?category=${category}`)
-      setVideos(response.data)
-    })()
-  }, [category])
-
-  const settings = {
-      dots: false,
-      infinite: true,
-      speed: 300,
-      centerMode: false,
-      variableWidth: true,
-      adaptiveHeight: true,
-  }
-
-  const categoryTitle = category.replace(/(^\w|\s\w)(\S*)/g, (_,m1,m2) => m1.toUpperCase()+m2.toLowerCase())
-
+function Carousel ({ category, episodes }) {
+  const categoryTitle = category.title.replace(/(^\w|\s\w)(\S*)/g, (_, m1, m2) => m1.toUpperCase() + m2.toLowerCase())
 
   return (
     <VideoCardGroupContainer>
@@ -34,20 +22,20 @@ function Carousel({ category }) {
         {categoryTitle}
       </Title>
       <SliderContainer>
-        <Slider {...settings} >
-          {videos.map((video) => {
+        <Slider {...settings}>
+          {episodes.map((episode) => {
             return (
-              <VideoCard 
-              key={video.id}
-              videoTitle={video.title}
-              videoURL={video.link}
+              <VideoCard
+                key={episode.id}
+                videoTitle={episode.title}
+                videoURL={episode.link}
               />
-              )
+            )
           })}
         </Slider>
       </SliderContainer>
     </VideoCardGroupContainer>
-  );
+  )
 }
 
 export default Carousel

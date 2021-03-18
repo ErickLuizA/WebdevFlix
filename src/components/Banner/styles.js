@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const BannerContainer = styled.section`
-  background-image: ${({ backgroundImg }) => `url(${backgroundImg})` };
+  background-image: ${({ backgroundImg }) => `url(${backgroundImg})`};
   background-size: cover;
   background-position: center;
   height: 70vh;
@@ -87,7 +87,7 @@ export const Button = styled.a`
  cursor: pointer;
  text-decoration: none;
  &:hover {
- 	background-color: ${({ theme }) => theme.hover};
+  background-color: ${({ theme }) => theme.hover};
  }
   @media(min-width: 768px) {
     display: none;

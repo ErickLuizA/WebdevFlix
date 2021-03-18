@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const Title = styled.h3`
   font-size: 3rem;
@@ -8,7 +8,7 @@ export const Title = styled.h3`
   padding: 20px;
   border-radius: 4px;
   background-color: ${({ theme }) => theme.foreground};
-`;
+`
 
 export const SliderContainer = styled.div`
   .slick-prev {
@@ -46,4 +46,4 @@ export const VideoCardGroupContainer = styled.section`
   margin: 0 auto;
   margin-bottom: 1rem;
   width: 90%;
-`;
+`

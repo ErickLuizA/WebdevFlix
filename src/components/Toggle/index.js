@@ -1,18 +1,18 @@
-import React, { useContext } from 'react'
-import { Switch } from '../../contexts/theme'
+import { useContext } from 'react'
 import { FaAdjust } from 'react-icons/fa'
+
 import { ToggleContainer } from './styles'
 
-const Toggle = ({ nav  }) => {
+import { Switch } from '../../contexts/theme'
 
+const Toggle = () => {
   const { toggle } = useContext(Switch)
-  
+
   return (
-    <ToggleContainer nav  onClick={toggle} >
+    <ToggleContainer onClick={toggle}>
       <FaAdjust />
     </ToggleContainer>
   )
-
 }
 
 export default Toggle

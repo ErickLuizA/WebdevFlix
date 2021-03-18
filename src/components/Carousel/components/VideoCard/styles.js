@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const VideoCardContainer = styled.a`
   border: 2px solid ${({ theme }) => theme.foreground} ;
@@ -18,4 +18,4 @@ export const VideoCardContainer = styled.a`
   &:focus {
     opacity: .5;
   }
-`;
+`

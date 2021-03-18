@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 
-
 export const Video = styled.iframe`
   width: 50%;
   height: 60%;
