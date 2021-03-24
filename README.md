@@ -32,7 +32,8 @@
   <a href="#clipboard-description">Description</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#building_construction-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#rocket-getting-started">Getting Started</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#memo-license">License</a>
+  <a href="#memo-license">License</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#framed_picture-screenshots">Screenshots</a>
 </p>
 
 
@@ -71,6 +72,13 @@ $ yarn install
 ```shell
 $ yarn start
 ```
+
+## :framed_picture: Screenshots
+
+<div>
+  <img alt="Fanarvel image" src="./.github/webdevhome.png"  width="500"/>
+  <img alt="Fanarvel image" src="./.github/newep.png"  width="500"/>
+</div>
 
 > [Live Demo](https://webdevflix.netlify.app/)
 
